@@ -1,0 +1,6 @@
+{
+"name" : "Luminous(only voting)",
+"symbol" : "ln",
+"compat_prefix": "ln",
+"data_url" : "https://luminous-api.herokuapp.com/api/charts/new"
+}
