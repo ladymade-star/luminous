@@ -22,73 +22,84 @@
 </head>
 
 <body>
-    <header class="mb-3">
-        <nav class="navbar navbar-dark bg-dark">
+    <header class="pb-3 mb-3">
+        <nav class="navbar navbar-dark bg-dark bg-gradient">
             <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1">Luminous</span>
+                <span class="navbar-brand mb-0 h1"><a href="./" class="link-light">Luminous</a></span>
             </div>
         </nav>
     </header>
 
     <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="./">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Proposal</li>
+            </ol>
+        </nav>
+        <div class="p-5 mb-4 border rounded-3">
 
-        <h1>新規提案フォーム</h1>
+            <div class="container-fluid py-2">
 
-        <div class="alert alert-success mb-3" role="alert">
-            <p class="mb-0">LR2IRに情報が存在することを確認してください。存在しない譜面は提案できません。</p>
-        </div>
+                <h1 class="display-5 fw-bold">Proposal</h1>
 
-        <div class="mb-3">
-            <input type="file" id="chart">
-        </div>
+                <div class="alert alert-info" role="alert">
+                    <p class="mb-0">LR2IRに存在する譜面のみ提案できます。</p>
+                </div>
 
-        <div class="mb-3">
-            <label class="form-label">md5</label>
-            <input class="form-control" id="md5" disabled>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">sha256</label>
-            <input class="form-control" id="sha256" disabled>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">難易度</label>
-            <select class="form-select form-select-sm" aria-label=".form-select-sm" id="level">
-                <option value="1">ln1</option>
-                <option value="2">ln2</option>
-                <option value="3">ln3</option>
-                <option value="4">ln4</option>
-                <option value="5">ln5</option>
-                <option value="6">ln6</option>
-                <option value="7">ln7</option>
-                <option value="8">ln8</option>
-                <option value="9">ln9</option>
-                <option value="10">ln10</option>
-                <option value="11">ln11</option>
-                <option value="12">ln12</option>
-                <option value="13">ln13</option>
-                <option value="14">ln14</option>
-                <option value="15">ln15</option>
-                <option value="16">ln16</option>
-                <option value="17">ln17</option>
-                <option value="18">ln18</option>
-                <option value="19">ln19</option>
-                <option value="20">ln20</option>
-                <option value="21">ln21</option>
-                <option value="22">ln22</option>
-                <option value="23">ln23</option>
-                <option value="24">ln24</option>
-                <option value="25">ln25</option>
-                <option value="26">ln26</option>
-                <option value="99" selected>ln???</option>
-            </select>
-            <div class="form-text">ln1-ln26はLN難易度表の◆1-◆26に対応します。難易度が適正外でわからない場合はln???にしてください。</div>
-        </div>
+                <div class="mb-3">
+                    <input type="file" id="chart">
+                </div>
 
-        <div class="mb-3">
-            <label class="form-label">提案者</label>
-            <input class="form-control" id="proposer">
+                <div class="mb-3">
+                    <label class="form-label fw-bold">md5</label>
+                    <input class="form-control" id="md5" disabled>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold">sha256</label>
+                    <input class="form-control" id="sha256" disabled>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold">level</label>
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm" id="level">
+                        <option value="1">ln1</option>
+                        <option value="2">ln2</option>
+                        <option value="3">ln3</option>
+                        <option value="4">ln4</option>
+                        <option value="5">ln5</option>
+                        <option value="6">ln6</option>
+                        <option value="7">ln7</option>
+                        <option value="8">ln8</option>
+                        <option value="9">ln9</option>
+                        <option value="10">ln10</option>
+                        <option value="11">ln11</option>
+                        <option value="12">ln12</option>
+                        <option value="13">ln13</option>
+                        <option value="14">ln14</option>
+                        <option value="15">ln15</option>
+                        <option value="16">ln16</option>
+                        <option value="17">ln17</option>
+                        <option value="18">ln18</option>
+                        <option value="19">ln19</option>
+                        <option value="20">ln20</option>
+                        <option value="21">ln21</option>
+                        <option value="22">ln22</option>
+                        <option value="23">ln23</option>
+                        <option value="24">ln24</option>
+                        <option value="25">ln25</option>
+                        <option value="26">ln26</option>
+                        <option value="99" selected>ln???</option>
+                    </select>
+                    <div class="form-text">ln1-ln26はLN難易度表の◆1-◆26に対応します。難易度が適正外でわからない場合はln???にしてください。</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">proposer</label>
+                    <input class="form-control" id="proposer">
+                </div>
+                <button class="btn btn-primary" id="submit">Submit</button>
+            </div>
         </div>
-        <button class="btn btn-primary" id="submit">Submit</button>
         <script>
             const submitButton = document.getElementById("submit")
             const proposerInput = document.getElementById("proposer")
@@ -122,23 +133,21 @@
 
             const doPost = (data) => {
                 const xhr = new XMLHttpRequest()
-                xhr.open("POST", "https://luminous-api.herokuapp.com/api/propose/")
-                xhr.setRequestHeader("Content-Type", "application/json")
+                xhr.open("POST",
+                    "https://script.google.com/macros/s/AKfycbyffaiYaqxRu_HhOUuc59RpX64y_SWqEh9vKD-qcqBakeA1uQMcAJ3i1tYddNeABXje6g/exec"
+                )
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
                 xhr.onload = () => {
-                    console.log(xhr.status)
-                    console.log("success")
-                    if (xhr.status == 201) {
+                    if (JSON.parse(xhr.response).result == "failure") {
+                        alert(JSON.parse(xhr.response).detail)
+                    } else {
                         window.location.href = "./table_new.html"
-                    } else if (xhr.status == 400) {
-                        alert(JSON.parse(xhr.response).message)
                     }
                 }
                 xhr.onerror = () => {
-                    console.log(xhr.status)
-                    console.log("error")
                     alert("error")
                 }
-                xhr.send(JSON.stringify(data))
+                xhr.send(`chart=${JSON.stringify(data)}`)
             }
 
             submitButton.addEventListener("click", () => {
@@ -152,8 +161,6 @@
                 } else {
                     alert("The form is incomplete.\n入力に不備があります。")
                 }
-
-                console.log()
             })
         </script>
 
