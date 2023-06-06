@@ -1,116 +1,508 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
+  <head>
     <title>Luminous</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="bmstable" content="header.json" />
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
-    </script>
-    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-    <meta property="og:url" content="https://ladymade-star.github.io/luminous/" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/material-kit/3.0.3/css/material-kit.css"
+      integrity="sha512-O1Iyk1hSWQMilXqlrhY9RpDnln9K9FzljvAW6hpNJaFDlAe9Txk4kTPlcHBFaY5YxZjBOz6WBTbtg8Hjsfiw9w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/material-kit/3.0.3/js/material-kit.min.js"
+      integrity="sha512-9EgoG4Ypp+QejqrxPVXIpj5qjGkAZKuAJSA1O/q9yfBjxYRY6SH/u15L7M+y6U3w4qMxoUQfZxABPH7zEEEgMA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <meta
+      property="og:url"
+      content="https://ladymade-star.github.io/luminous/"
+    />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Luminous" />
     <meta property="og:description" content="Luminous難易度表" />
     <meta property="og:site_name" content="Luminous" />
-</head>
+  </head>
 
-<body>
+  <body>
     <header class="pb-3 mb-3">
-        <nav class="navbar navbar-dark bg-dark bg-gradient">
-            <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1"><a href="./" class="link-light">Luminous</a></span>
-            </div>
-        </nav>
+      <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <span class="navbar-brand mb-0 h1"
+            ><a href="./" class="link-light">Luminous</a></span
+          >
+        </div>
+      </nav>
     </header>
 
     <div class="container">
-        <div class="p-5 mb-4 bg-light rounded-3">
-            <div class="container-fluid py-5">
-                <h1 class="display-3 fw-bold"><object data="./favicon.svg" width="80" height="80"
-                        style="vertical-align: text-bottom;margin-right: 10px;"></object>Luminous</object></h1>
-                <p class="fs-5">Luminous難易度表はLN難易度表やLN Overjoyの代替となることを目指したLN譜面を専門に扱うBMS難易度表です。</p>
-            </div>
+      <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+          <h1 class="display-3 fw-bold">
+            <object
+              data="./favicon.svg"
+              width="80"
+              height="80"
+              style="vertical-align: text-bottom; margin-right: 10px"
+            ></object
+            >Luminous
+          </h1>
+          <p class="fs-5">
+            Luminous難易度表はLN譜面を専門に扱うBMS難易度表です。
+          </p>
         </div>
-        <div class="p-5 mb-4 border rounded-3">
-            <div class="container-fluid py-2">
-
-                <h2 class="display-6 fw-bold">Table</h2>
-                <p>当難易度表のシンボルは<code>ln</code>です。</p>
-                <p>Luminousのln1-ln26はLN難易度表の◆1-◆26に対応します。Stella/Satelliteで否決されるような鍵盤地力要素の多いLN譜面も積極的に扱います。</p>
-                <p></p>
-                <p>リンク先をGLAssistやBeMusicSeekerで読み込んで下さい。</p>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">難易度表</th>
-                            <th scope="col">説明</th>
-                            <th scope="col">対象</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><a href="./table.html"><button class="btn btn-primary"
-                                        type="button">Luminous</button></a> </td>
-                            <td>メインの難易度表です。</td>
-                            <td>LN初心者の方</td>
-                        </tr>
-                        <tr>
-                            <td><a href="./table_sub.html"><button class="btn btn-secondary" type="button">Luminous
-                                        Sub</button></a></td>
-                            <td>過去に提案された全ての譜面が収録されている難易度表です。</td>
-                            <td>片っ端からLN譜面を遊びたい方</td>
-                        </tr>
-                        <tr>
-                            <td><a href="./table_new.html"><button class="btn btn-warning" type="button">Luminous (only
-                                        voting)</button></a></td>
-                            <td>新規提案譜面のみが収録されている難易度表です。</td>
-                            <td>片っ端からLN譜面を遊びたい方</td>
-                        </tr>
-                        <tr>
-                            <td><a href="./table_reject.html"><button class="btn btn-danger" type="button">Luminous
-                                        (only
-                                        rejected)</button></a></td>
-                            <td>否決された譜面のみが収録されている難易度表です。</td>
-                            <td>片っ端からLN譜面を遊びたい方</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <hr>
-                <h2 class="display-6 fw-bold">Proposal</h2>
-                <p>譜面の新規提案は以下のリンク先から行えます。</p>
-                <p>Sub表のみへの収録を希望する場合でも通常と同様に提案してください。</p>
-                <a href="./propose.html"><button class="btn btn-primary btn-lg" type="button">新規提案フォーム(仮)</button></a>
-                <hr>
-                <h2 class="display-6 fw-bold">Rules</h2>
-                <div class="alert alert-info" role="alert">
-                    ルールは仮のものです。
+      </div>
+      <div class="p-5 mb-4 border rounded-3">
+        <div class="container-fluid py-2">
+          <h2 class="display-6 fw-bold">Table</h2>
+          <p>当難易度表のシンボルは<code>ln</code>です。</p>
+          <p>
+            Luminousのln1-ln26はLN難易度表の◆1-◆26に対応します。従来のLN難易度表にはなかった鍵盤地力要素の多いLN譜面も積極的に扱います。
+          </p>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">譜面の状態</th>
+                  <th scope="col">説明</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <span class="badge bg-success">Accepted</span>
+                  </td>
+                  <td>正式に登載された譜面です。</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="badge bg-info">Qualified</span>
+                  </td>
+                  <td>
+                    <p>
+                      投票で高評価を得た譜面です。異議申し立てがなければ一定期間が経過した後に<span
+                        class="badge bg-success"
+                        >Accepted</span
+                      >になります。
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="badge bg-primary">Loved</span>
+                  </td>
+                  <td>登載に至らなかった譜面のうち、人気の高い譜面です。</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="badge bg-danger">Voting</span>
+                  </td>
+                  <td>現在投票を受け付けている譜面です。</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="badge bg-warning">Pending</span>
+                  </td>
+                  <td>
+                    <p>
+                      次回の投票の対象となる譜面です。異議申し立てがなければ一定期間が経過した後に<span
+                        class="badge bg-danger"
+                        >Voting</span
+                      >になります。
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="badge bg-secondary">Graveyard</span>
+                  </td>
+                  <td>その他の譜面です。</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="badge bg-dark">Banned</span>
+                  </td>
+                  <td>管理者により強制的に削除された譜面です。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-responsive">
+            <div id="chart-table">
+              <section class="py-1">
+                <div class="container">
+                  <div class="row justify-space-between py-2">
+                    <div>
+                      <div class="input-group input-group-dynamic mb-4">
+                        <span class="input-group-text"></span>
+                        <input
+                          class="search form-control"
+                          placeholder="Search"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <ul>
-                    <li>提案前にLR2IRの譜面ページに本体と差分のリンクが記載されていることを確認してください。</li>
-                    <li>譜面の自薦は可能です。</li>
-                    <li>違法な楽曲や作者が難易度表への登載を拒否している譜面の提案は禁止します。</li>
-                    <li>譜面作者が配置ミスを認めている譜面の提案は禁止します。</li>
-                    <li>譜面作者が配置ミスであることを公言していない全てのズレは意図的なアレンジ差分として扱います。</li>
-                    <li>キー音アレンジが気に入らないという理由での反対票や削除提案は認めます。</li>
-                    <li>LNを全く含まない譜面の提案は禁止です。</li>
-                </ul>
-                <hr>
-                <h2 class="display-6 fw-bold">Links</h2>
-                <ul>
-                    <li><a href="https://discord.gg/52zEqjnx2G">Discord</a></li>
-                    <li><a href="https://twitter.com/ladymade_star_">Twitter(投票など)</a></li>
-                    <li><a href="https://github.com/ladymade-star/luminous/issues">GitHub(機能面での提案など)</a></li>
-                </ul>
-                <hr>
+              </section>
+              <p>表の見出しをクリックするとソートできます。</p>
+              <div class="text-xs">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="sort" data-sort="level">Level</th>
+                      <th scope="col" class="sort" data-sort="status">
+                        Status
+                      </th>
+                      <th scope="col" class="sort" data-sort="title">Title</th>
+                      <th scope="col" class="sort" data-sort="artist">
+                        Artist
+                      </th>
+                      <th scope="col" class="sort" data-sort="proposer">
+                        Proposer
+                      </th>
+                      <th scope="col">LR2IR</th>
+                      <th scope="col">MinIR</th>
+                      <th scope="col">Preview</th>
+                    </tr>
+                  </thead>
+                  <tbody class="list"></tbody>
+                </table>
+              </div>
             </div>
-        </div>
-    </div>
 
+            <style>
+              .sort.asc:after {
+                content: "↓";
+                padding-left: 10px;
+              }
+              .sort.desc:after {
+                content: "↑";
+                padding-left: 10px;
+              }
+            </style>
+
+            <script>
+              const bmsStatusToClass = {
+                accepted: "bg-success",
+                qualified: "bg-info",
+                loved: "bg-primary",
+                voting: "bg-danger",
+                pending: "bg-warning",
+                graveyard: "bg-secondary",
+                banned: "bg-dark",
+              }
+              const capitalize = (string) => {
+                if (typeof string !== "string" || !string) return string
+                return `${string.charAt(0).toUpperCase()}${string
+                  .slice(1)
+                  .toLowerCase()}`
+              }
+
+              let bmsTable
+              const listOptions = {
+                item: (bms) => {
+                  return `<tr>
+                    <td class="level">ln${bms.level}</td>
+                    <td>
+                      <span class="badge ${
+                        bmsStatusToClass[bms.status]
+                      }">${capitalize(bms.status)}</span>
+                    </td>
+                    <td class="title"><a href="${
+                      bms.lr2ir
+                    }"><div class="text-overflow" style="max-width: 300px;">${
+                    bms.title
+                  }</div></a></td>
+                    <td class="artist"><div class="text-overflow" style="max-width: 200px;">${
+                      bms.artist
+                    }</div></td>
+                    <td class="proposer"><div class="text-overflow" style="max-width: 100px;">${
+                      bms.proposer
+                    }</div></td>
+                    <td class="lr2ir"><a href="${bms.lr2ir}">LR2IR</a></td>
+                    <td class="minir"><a href="${bms.minir}">MinIR</a></td>
+                    <td class="preview"><a href="${
+                      bms.preview
+                    }">Preview</a></td>
+                  </tr>`
+                },
+              }
+              const listValues = []
+
+              const bmsTableHeaderName = "header_sub.json" //document.querySelector('meta[name="bmstable"]').content
+              fetch(bmsTableHeaderName)
+                .then((response) => {
+                  if (!response.ok) {
+                    throw new Error(response.statusText)
+                  }
+                  return response.json()
+                })
+                .then((headerJson) => {
+                  fetch(headerJson.data_url)
+                    .then((response) => {
+                      if (!response.ok) {
+                        throw new Error(response.statusText)
+                      }
+                      return response.json()
+                    })
+                    .then((tableJson) => {
+                      for (const bms of tableJson) {
+                        listValues.push({
+                          level: parseInt(bms.level),
+                          status: bms.status,
+                          title: bms.title,
+                          artist: bms.artist,
+                          proposer: bms.proposer,
+                          lr2ir: `http://www.dream-pro.info/~lavalse/LR2IR/search.cgi?mode=ranking&bmsmd5=${bms.md5}`,
+                          minir: `https://www.gaftalk.com/minir/#/viewer/song/${bms.sha256}`,
+                          preview: `http://www.ribbit.xyz/bms/score/view?md5=${bms.md5}`,
+                        })
+                      }
+                      bmsTable = new List(
+                        "chart-table",
+                        listOptions,
+                        listValues
+                      )
+                    })
+                })
+                .catch((error) => {
+                  console.error(error)
+                })
+            </script>
+          </div>
+          <hr />
+          <h2 class="display-6 fw-bold">Getting Started</h2>
+          <p>
+            以下のリンク先をGLAssistやBeMusicSeekerやbeatorajaで読み込んでください。
+          </p>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">難易度表</th>
+                  <th scope="col">説明</th>
+                  <th scope="col">備考</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="./table.html"
+                      ><button
+                        class="btn bg-gradient-success w-auto me-2"
+                        type="button"
+                      >
+                        Luminous
+                      </button></a
+                    >
+                  </td>
+                  <td>
+                    <span class="badge bg-success">Accepted</span>,
+                    <span class="badge bg-info">Qualified</span
+                    >の譜面が収録されています。
+                  </td>
+                  <td>おすすめ</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="./table_plus.html"
+                      ><button
+                        class="btn bg-gradient-primary w-auto me-2"
+                        type="button"
+                      >
+                        Luminous+
+                      </button></a
+                    >
+                  </td>
+                  <td>
+                    <span class="badge bg-success">Accepted</span>,
+                    <span class="badge bg-info">Qualified</span>,
+                    <span class="badge bg-primary">Loved</span
+                    >の譜面が収録されています。
+                  </td>
+                  <td>おすすめ</td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="./table_sub.html"
+                      ><button class="btn btn-dark" type="button">
+                        Luminous Sub
+                      </button></a
+                    >
+                  </td>
+                  <td>過去に提案されたすべての譜面が収録されています。</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="./table_accepted.html"
+                      ><button
+                        class="btn bg-gradient-success w-auto me-2"
+                        type="button"
+                      >
+                        Luminous (Accepted)
+                      </button></a
+                    >
+                  </td>
+                  <td>
+                    <span class="badge bg-success">Accepted</span
+                    >の譜面が収録されています。
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="./table_qualified.html"
+                      ><button
+                        class="btn bg-gradient-info w-auto me-2"
+                        type="button"
+                      >
+                        Luminous (Qualified)
+                      </button></a
+                    >
+                  </td>
+                  <td>
+                    <span class="badge bg-info">Qualified</span
+                    >の譜面が収録されています。
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="./table_loved.html"
+                      ><button
+                        class="btn bg-gradient-primary w-auto me-2"
+                        type="button"
+                      >
+                        Luminous (Loved)
+                      </button></a
+                    >
+                  </td>
+                  <td>
+                    <span class="badge bg-primary">Loved</span
+                    >の譜面が収録されています。
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="./table_voting.html"
+                      ><button class="btn btn-danger" type="button">
+                        Luminous (Voting)
+                      </button></a
+                    >
+                  </td>
+                  <td>
+                    <span class="badge bg-danger">Voting</span
+                    >の譜面が収録されています。
+                  </td>
+                  <td></td>
+                </tr>
+                <tr></tr>
+                <tr>
+                  <td>
+                    <a href="./table_pending.html"
+                      ><button class="btn btn-warning" type="button">
+                        Luminous (Pending)
+                      </button></a
+                    >
+                  </td>
+                  <td>
+                    <span class="badge bg-warning">Pending</span
+                    >の譜面が収録されています。
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="./table_graveyard.html"
+                      ><button class="btn btn-secondary" type="button">
+                        Luminous (Graveyard)
+                      </button></a
+                    >
+                  </td>
+                  <td>
+                    <span class="badge bg-secondary">Graveyard</span
+                    >の譜面が収録されています。
+                  </td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <hr />
+          <h2 class="display-6 fw-bold">Proposal</h2>
+          <p>譜面の新規提案は以下のリンク先から行えます。</p>
+          <p>
+            Sub表のみへの収録を希望する場合でも通常と同様に提案してください。
+          </p>
+          <a href="./propose.html"
+            ><button class="btn btn-warning btn-lg" type="button">
+              新規提案フォーム
+            </button></a
+          >
+          <hr />
+          <h2 class="display-6 fw-bold">Rules</h2>
+          <ul>
+            <li>
+              提案前にLR2IRの譜面ページに本体と差分のリンクが記載されていることを確認してください。
+            </li>
+            <li>譜面の自薦を認めます。</li>
+            <li>
+              違法な楽曲や作者が難易度表への登載を拒否している譜面の提案を禁止します。
+            </li>
+            <li>譜面作者が配置ミスを認めている譜面の提案を禁止します。</li>
+            <li>
+              譜面作者が配置ミスであることを公言していないすべてのズレは意図的なアレンジ差分として扱います。
+            </li>
+            <li>
+              キー音アレンジが気に入らないという理由での反対票や削除提案を認めます。
+            </li>
+            <li>LNをまったく含まない譜面の提案は禁止です。</li>
+          </ul>
+          <hr />
+          <h2 class="display-6 fw-bold">Links</h2>
+          <ul>
+            <li><a href="https://discord.gg/52zEqjnx2G">Discord</a></li>
+            <li>
+              <a href="https://twitter.com/ladymade_star_">Twitter</a>
+            </li>
+            <li>
+              <a href="https://github.com/ladymade-star/luminous/issues"
+                >GitHub</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
