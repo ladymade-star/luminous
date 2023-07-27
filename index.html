@@ -4,7 +4,7 @@
     <title>Luminous</title>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1.0, user-scalable=yes" />
     <meta name="bmstable" content="header.json" />
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <link
@@ -35,16 +35,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <meta
-      property="og:url"
-      content="https://ladymade-star.github.io/luminous/"
-    />
+    <meta property="og:url" content="https://ladymade-star.github.io/luminous/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Luminous" />
     <meta property="og:description" content="Luminous難易度表" />
@@ -55,14 +49,12 @@
     <header class="pb-3 mb-3">
       <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1"
-            ><a href="./" class="link-light">Luminous</a></span
-          >
+          <span class="navbar-brand mb-0 h1"><a href="./" class="link-light">Luminous</a></span>
         </div>
       </nav>
     </header>
 
-    <div class="container">
+    <div class="container-fluid">
       <div class="p-5 mb-4 bg-light rounded-3">
         <div class="container-fluid py-5">
           <h1 class="display-3 fw-bold">
@@ -74,9 +66,7 @@
             ></object
             >Luminous
           </h1>
-          <p class="fs-5">
-            Luminous難易度表はLN譜面を専門に扱うBMS難易度表です。
-          </p>
+          <p class="fs-5">Luminous難易度表はLN譜面を専門に扱うBMS難易度表です。</p>
         </div>
       </div>
       <div class="p-5 mb-4 border rounded-3">
@@ -162,11 +152,7 @@
                     <div>
                       <div class="input-group input-group-dynamic mb-4">
                         <span class="input-group-text"></span>
-                        <input
-                          class="search form-control"
-                          placeholder="Search"
-                          type="text"
-                        />
+                        <input class="search form-control" placeholder="Search" type="text" />
                       </div>
                     </div>
                   </div>
@@ -178,16 +164,11 @@
                   <thead>
                     <tr>
                       <th scope="col" class="sort" data-sort="level">Level</th>
-                      <th scope="col" class="sort" data-sort="status">
-                        Status
-                      </th>
+                      <th scope="col" class="sort" data-sort="status">Status</th>
+                      <th scope="col" class="banner">Banner</th>
                       <th scope="col" class="sort" data-sort="title">Title</th>
-                      <th scope="col" class="sort" data-sort="artist">
-                        Artist
-                      </th>
-                      <th scope="col" class="sort" data-sort="proposer">
-                        Proposer
-                      </th>
+                      <th scope="col" class="sort" data-sort="artist">Artist</th>
+                      <th scope="col" class="sort" data-sort="proposer">Proposer</th>
                       <th scope="col">LR2IR</th>
                       <th scope="col">MinIR</th>
                       <th scope="col">Preview</th>
@@ -221,9 +202,7 @@
               }
               const capitalize = (string) => {
                 if (typeof string !== "string" || !string) return string
-                return `${string.charAt(0).toUpperCase()}${string
-                  .slice(1)
-                  .toLowerCase()}`
+                return `${string.charAt(0).toUpperCase()}${string.slice(1).toLowerCase()}`
               }
 
               let bmsTable
@@ -232,26 +211,17 @@
                   return `<tr>
                     <td class="level">ln${bms.level}</td>
                     <td>
-                      <span class="badge ${
-                        bmsStatusToClass[bms.status]
-                      }">${capitalize(bms.status)}</span>
+                      <span class="badge ${bmsStatusToClass[bms.status]}">${capitalize(bms.status)}</span>
                     </td>
-                    <td class="title"><a href="${
-                      bms.lr2ir
-                    }"><div class="text-overflow" style="max-width: 300px;">${
+                    <td class="banner" style="background-image: url(${bms.banner});"></td>
+                    <td class="title"><a href="${bms.lr2ir}"><div class="text-overflow" style="max-width: 300px;">${
                     bms.title
                   }</div></a></td>
-                    <td class="artist"><div class="text-overflow" style="max-width: 200px;">${
-                      bms.artist
-                    }</div></td>
-                    <td class="proposer"><div class="text-overflow" style="max-width: 100px;">${
-                      bms.proposer
-                    }</div></td>
+                    <td class="artist"><div class="text-overflow" style="max-width: 250px;">${bms.artist}</div></td>
+                    <td class="proposer"><div class="text-overflow" style="max-width: 150px;">${bms.proposer}</div></td>
                     <td class="lr2ir"><a href="${bms.lr2ir}">LR2IR</a></td>
                     <td class="minir"><a href="${bms.minir}">MinIR</a></td>
-                    <td class="preview"><a href="${
-                      bms.preview
-                    }">Preview</a></td>
+                    <td class="preview"><a href="${bms.preview}">Preview</a></td>
                   </tr>`
                 },
               }
@@ -278,6 +248,7 @@
                         listValues.push({
                           level: parseInt(bms.level),
                           status: bms.status,
+                          banner: bms.banner,
                           title: bms.title,
                           artist: bms.artist,
                           proposer: bms.proposer,
@@ -286,11 +257,7 @@
                           preview: `http://www.ribbit.xyz/bms/score/view?md5=${bms.md5}`,
                         })
                       }
-                      bmsTable = new List(
-                        "chart-table",
-                        listOptions,
-                        listValues
-                      )
+                      bmsTable = new List("chart-table", listOptions, listValues)
                     })
                 })
                 .catch((error) => {
@@ -300,9 +267,7 @@
           </div>
           <hr />
           <h2 class="display-6 fw-bold">Getting Started</h2>
-          <p>
-            以下のリンク先をGLAssistやBeMusicSeekerやbeatorajaで読み込んでください。
-          </p>
+          <p>以下のリンク先をGLAssistやBeMusicSeekerやbeatorajaで読み込んでください。</p>
           <div class="table-responsive">
             <table class="table">
               <thead>
@@ -316,47 +281,30 @@
                 <tr>
                   <td>
                     <a href="./table.html"
-                      ><button
-                        class="btn bg-gradient-success w-auto me-2"
-                        type="button"
-                      >
-                        Luminous
-                      </button></a
+                      ><button class="btn bg-gradient-success w-auto me-2" type="button">Luminous</button></a
                     >
                   </td>
                   <td>
                     <span class="badge bg-success">Accepted</span>,
-                    <span class="badge bg-info">Qualified</span
-                    >の譜面が収録されています。
+                    <span class="badge bg-info">Qualified</span>の譜面が収録されています。
                   </td>
                   <td>おすすめ</td>
                 </tr>
                 <tr>
                   <td>
                     <a href="./table_plus.html"
-                      ><button
-                        class="btn bg-gradient-primary w-auto me-2"
-                        type="button"
-                      >
-                        Luminous+
-                      </button></a
+                      ><button class="btn bg-gradient-primary w-auto me-2" type="button">Luminous+</button></a
                     >
                   </td>
                   <td>
-                    <span class="badge bg-success">Accepted</span>,
-                    <span class="badge bg-info">Qualified</span>,
-                    <span class="badge bg-primary">Loved</span
-                    >の譜面が収録されています。
+                    <span class="badge bg-success">Accepted</span>, <span class="badge bg-info">Qualified</span>,
+                    <span class="badge bg-primary">Loved</span>の譜面が収録されています。
                   </td>
-                  <td>おすすめ</td>
+                  <td></td>
                 </tr>
                 <tr>
                   <td>
-                    <a href="./table_sub.html"
-                      ><button class="btn btn-dark" type="button">
-                        Luminous Sub
-                      </button></a
-                    >
+                    <a href="./table_sub.html"><button class="btn btn-dark" type="button">Luminous Sub</button></a>
                   </td>
                   <td>過去に提案されたすべての譜面が収録されています。</td>
                   <td></td>
@@ -364,95 +312,56 @@
                 <tr>
                   <td>
                     <a href="./table_accepted.html"
-                      ><button
-                        class="btn bg-gradient-success w-auto me-2"
-                        type="button"
-                      >
-                        Luminous (Accepted)
-                      </button></a
+                      ><button class="btn bg-gradient-success w-auto me-2" type="button">Luminous (Accepted)</button></a
                     >
                   </td>
-                  <td>
-                    <span class="badge bg-success">Accepted</span
-                    >の譜面が収録されています。
-                  </td>
+                  <td><span class="badge bg-success">Accepted</span>の譜面が収録されています。</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>
                     <a href="./table_qualified.html"
-                      ><button
-                        class="btn bg-gradient-info w-auto me-2"
-                        type="button"
-                      >
-                        Luminous (Qualified)
-                      </button></a
+                      ><button class="btn bg-gradient-info w-auto me-2" type="button">Luminous (Qualified)</button></a
                     >
                   </td>
-                  <td>
-                    <span class="badge bg-info">Qualified</span
-                    >の譜面が収録されています。
-                  </td>
+                  <td><span class="badge bg-info">Qualified</span>の譜面が収録されています。</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>
                     <a href="./table_loved.html"
-                      ><button
-                        class="btn bg-gradient-primary w-auto me-2"
-                        type="button"
-                      >
-                        Luminous (Loved)
-                      </button></a
+                      ><button class="btn bg-gradient-primary w-auto me-2" type="button">Luminous (Loved)</button></a
                     >
                   </td>
-                  <td>
-                    <span class="badge bg-primary">Loved</span
-                    >の譜面が収録されています。
-                  </td>
+                  <td><span class="badge bg-primary">Loved</span>の譜面が収録されています。</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>
                     <a href="./table_voting.html"
-                      ><button class="btn btn-danger" type="button">
-                        Luminous (Voting)
-                      </button></a
+                      ><button class="btn btn-danger" type="button">Luminous (Voting)</button></a
                     >
                   </td>
-                  <td>
-                    <span class="badge bg-danger">Voting</span
-                    >の譜面が収録されています。
-                  </td>
+                  <td><span class="badge bg-danger">Voting</span>の譜面が収録されています。</td>
                   <td></td>
                 </tr>
                 <tr></tr>
                 <tr>
                   <td>
                     <a href="./table_pending.html"
-                      ><button class="btn btn-warning" type="button">
-                        Luminous (Pending)
-                      </button></a
+                      ><button class="btn btn-warning" type="button">Luminous (Pending)</button></a
                     >
                   </td>
-                  <td>
-                    <span class="badge bg-warning">Pending</span
-                    >の譜面が収録されています。
-                  </td>
+                  <td><span class="badge bg-warning">Pending</span>の譜面が収録されています。</td>
                   <td></td>
                 </tr>
                 <tr>
                   <td>
                     <a href="./table_graveyard.html"
-                      ><button class="btn btn-secondary" type="button">
-                        Luminous (Graveyard)
-                      </button></a
+                      ><button class="btn btn-secondary" type="button">Luminous (Graveyard)</button></a
                     >
                   </td>
-                  <td>
-                    <span class="badge bg-secondary">Graveyard</span
-                    >の譜面が収録されています。
-                  </td>
+                  <td><span class="badge bg-secondary">Graveyard</span>の譜面が収録されています。</td>
                   <td></td>
                 </tr>
               </tbody>
@@ -461,31 +370,17 @@
           <hr />
           <h2 class="display-6 fw-bold">Proposal</h2>
           <p>譜面の新規提案は以下のリンク先から行えます。</p>
-          <p>
-            Sub表のみへの収録を希望する場合でも通常と同様に提案してください。
-          </p>
-          <a href="./propose.html"
-            ><button class="btn btn-warning btn-lg" type="button">
-              新規提案フォーム
-            </button></a
-          >
+          <p>Sub表のみへの収録を希望する場合でも通常と同様に提案してください。</p>
+          <a href="./propose.html"><button class="btn btn-warning btn-lg" type="button">新規提案フォーム</button></a>
           <hr />
           <h2 class="display-6 fw-bold">Rules</h2>
           <ul>
-            <li>
-              提案前にLR2IRの譜面ページに本体と差分のリンクが記載されていることを確認してください。
-            </li>
+            <li>提案前にLR2IRの譜面ページに本体と差分のリンクが記載されていることを確認してください。</li>
             <li>譜面の自薦を認めます。</li>
-            <li>
-              違法な楽曲や作者が難易度表への登載を拒否している譜面の提案を禁止します。
-            </li>
+            <li>違法な楽曲や作者が難易度表への登載を拒否している譜面の提案を禁止します。</li>
             <li>譜面作者が配置ミスを認めている譜面の提案を禁止します。</li>
-            <li>
-              譜面作者が配置ミスであることを公言していないすべてのズレは意図的なアレンジ差分として扱います。
-            </li>
-            <li>
-              キー音アレンジが気に入らないという理由での反対票や削除提案を認めます。
-            </li>
+            <li>譜面作者が配置ミスであることを公言していないすべてのズレは意図的なアレンジ差分として扱います。</li>
+            <li>キー音アレンジが気に入らないという理由での反対票や削除提案を認めます。</li>
             <li>LNをまったく含まない譜面の提案は禁止です。</li>
           </ul>
           <hr />
@@ -496,9 +391,7 @@
               <a href="https://twitter.com/ladymade_star_">Twitter</a>
             </li>
             <li>
-              <a href="https://github.com/ladymade-star/luminous/issues"
-                >GitHub</a
-              >
+              <a href="https://github.com/ladymade-star/luminous/issues">GitHub</a>
             </li>
           </ul>
         </div>

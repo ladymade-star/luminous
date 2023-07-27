@@ -3,7 +3,18 @@ body {
 }
 
 #chart-table {
-  height: 80vh;
+  height: 90vh;
+}
+
+#chart-table > div > table > tbody > tr > td {
+  height: 60px;
+  vertical-align: middle;
+}
+
+#chart-table > div > table > tbody > tr > .banner {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .text-overflow {

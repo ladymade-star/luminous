@@ -43,9 +43,7 @@
     <header class="pb-3 mb-3">
       <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1"
-            ><a href="./" class="link-light">Luminous</a></span
-          >
+          <span class="navbar-brand mb-0 h1"><a href="./" class="link-light">Luminous</a></span>
         </div>
       </nav>
     </header>
@@ -95,11 +93,7 @@
           </div>
           <div class="mb-3">
             <label class="form-label fw-bold">level</label>
-            <select
-              class="form-select form-select-sm"
-              aria-label=".form-select-sm"
-              id="level"
-            >
+            <select class="form-select form-select-sm" aria-label=".form-select-sm" id="level">
               <option value="1">ln1</option>
               <option value="2">ln2</option>
               <option value="3">ln3</option>
@@ -160,9 +154,7 @@
           const fileReader = new FileReader()
 
           fileReader.onloadend = (e) => {
-            const blob = CryptoJS.lib.WordArray.create(
-              new Uint8Array(e.target.result)
-            )
+            const blob = CryptoJS.lib.WordArray.create(new Uint8Array(e.target.result))
             md5Input.value = CryptoJS.MD5(blob).toString()
             sha256Input.value = CryptoJS.SHA256(blob).toString()
           }
@@ -173,15 +165,17 @@
         chartInput.addEventListener("change", getHash)
 
         const doPost = (data) => {
-
           // fetchでpostする
-          fetch("https://script.google.com/macros/s/AKfycbw1BLjiGiOwjmbsZyJFG3FvxmfXWlrb5QkanYM_g2Dvgvp-lGcqWGoCZG2rXniQzL-X3A/exec", {
-            method: "POST",
-            body: `chart=${JSON.stringify(data)}`,
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-          })
+          fetch(
+            "https://script.google.com/macros/s/AKfycbw1BLjiGiOwjmbsZyJFG3FvxmfXWlrb5QkanYM_g2Dvgvp-lGcqWGoCZG2rXniQzL-X3A/exec",
+            {
+              method: "POST",
+              body: `chart=${JSON.stringify(data)}`,
+              headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+              },
+            }
+          )
             .then((response) => response.json())
             .then((responseJson) => {
               if (responseJson.result == "failure") {
