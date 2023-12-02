@@ -170,7 +170,7 @@
             "https://script.google.com/macros/s/AKfycbw1BLjiGiOwjmbsZyJFG3FvxmfXWlrb5QkanYM_g2Dvgvp-lGcqWGoCZG2rXniQzL-X3A/exec",
             {
               method: "POST",
-              body: `chart=${JSON.stringify(data)}`,
+              body: `chart=${encodeURIComponent(JSON.stringify(data))}`,
               headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
               },
